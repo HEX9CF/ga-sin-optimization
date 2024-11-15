@@ -1,6 +1,6 @@
 import numpy as np
 
-from function.objective_function import objective_function
+from function.objective import objective_function
 
 # 解码
 def decode(binary, bounds, gene_size):
@@ -17,7 +17,7 @@ def fitness_function(population, bounds, gene_size):
         x1 = decode(x1_binary, bounds, gene_size)
         x2 = decode(x2_binary, bounds, gene_size)
 
-        fitness_value = objective_function([x1, x2])
+        fitness_value = -objective_function([x1, x2])
         fitness.append(fitness_value)
     return np.array(fitness)
 
