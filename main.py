@@ -6,13 +6,14 @@ from population import init_population
 from matplotlib import pyplot as plt
 
 bounds = [0, 6]     # 取值范围
-pop_size = 64     # 种群数量
+pop_size = 1024     # 种群数量
 gene_size = 23      # 基因长度
 gene_count = 2      # 基因数量
 pc = 0.75           # 杂交概率
-pm = 0.4           # 变异概率
+pm = 0.15           # 变异概率
 max_epoch = 10000        # 最大迭代次数
 max_best_unchanged_epoch = 100 # 最好个体未发生变化代数
+best_count = 128
 
 def main():
     max_fitness = []
@@ -53,7 +54,7 @@ def main():
     # 输出全局最优解
     print("全局最优解：")
     fitness = fitness_function(population, bounds, gene_size)
-    for epoch in range(len(population)):
+    for epoch in range(best_count):
         x1_binary = population[epoch][:gene_size]
         x2_binary = population[epoch][gene_size:]
 
