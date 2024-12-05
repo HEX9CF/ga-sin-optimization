@@ -1,6 +1,6 @@
 import numpy as np
 
-from function.objective import objective_function
+from src.function.objective import objective_function
 
 # 解码
 def decode(binary, bounds, gene_size):
